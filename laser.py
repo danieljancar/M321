@@ -1,5 +1,4 @@
 import requests
-import time
 
 def activate():
     response = requests.post("http://10.255.255.254:2018/activate")
@@ -19,7 +18,3 @@ def set_angle(angle):
 def get_state():
     response = requests.get("http://10.255.255.254:2018/state")
     print(f"state: {response.json()}")
-
-activate()
-time.sleep(1)
-deactive()
