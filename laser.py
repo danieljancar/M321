@@ -26,8 +26,8 @@ def aim_laser():
     angle = 0
     restart_laser = 3
 
-    try:
-        while 1 == 1:
+    while True:
+        try:
             if restart_laser == 3:
                 status_code = activate()
                 if status_code == 403:
@@ -41,8 +41,13 @@ def aim_laser():
             restart_laser += 1
             state = get_state()
 
-            if state["is_mining"]:
-                break
-            angle += 22
-    except requests.exceptions.RequestException as e:
-        raise e
+            if state.get("is_mining"):
+                print("mining rn")
+                time.sleep(5)
+            else:
+                angle = (angle + 22) % 360
+                set_angle(angle)
+                time.sleep(1)
+
+        except requests.exceptions.RequestException as e:
+            raise e
