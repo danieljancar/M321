@@ -1,8 +1,10 @@
 import requests
+import time
 
 def activate():
     response = requests.post("http://10.255.255.254:2018/activate")
     print(f"activate laser: {response.json()}")
+    return response.status_code
 
 def deactive():
     response = requests.post("http://10.255.255.254:2018/deactivate")
@@ -18,3 +20,29 @@ def set_angle(angle):
 def get_state():
     response = requests.get("http://10.255.255.254:2018/state")
     print(f"state: {response.json()}")
+    return response.json()
+
+def aim_laser():
+    angle = 0
+    restart_laser = 3
+
+    try:
+        while 1 == 1:
+            if restart_laser == 3:
+                status_code = activate()
+                if status_code == 403:
+                    print("max request reached - hold on for one min")
+                    time.sleep(60)
+                    activate()
+                restart_laser = 0
+
+            time.sleep(1)
+            set_angle(angle)
+            restart_laser += 1
+            state = get_state()
+
+            if state["is_mining"]:
+                break
+            angle += 22
+    except requests.exceptions.RequestException as e:
+        raise e
