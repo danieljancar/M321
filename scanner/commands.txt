@@ -7,5 +7,11 @@ systemctl enable rabbitmq-server
 systemctl start rabbitmq-server
 systemctl status rabbitmq-server
 
+in /etc/rabbitmq ein rabbitmq.conf erstellen und folgendes reintun:
+listeners.tcp.default = 2014
+loopback_users.guest = false
+
+systemctl restart rabbitmq-server
+
 2. pika installation
 apt install python3-pika
