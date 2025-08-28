@@ -62,7 +62,7 @@ def set_limit_normal():
         "thruster_front_right": 1,
         "thruster_bottom_right": 1,
         "thruster_front_left": 1,
-        "laser": 0
+        "laser": 1
     })
 
 
