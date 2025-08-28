@@ -1,14 +1,15 @@
 import pika
 import json
 
-connection = pika.BlockingConnection(pika.ConnectionParameters(host="10.255.255.254", port=2014))
-channel = connection.channel()
+def scan():
+    connection = pika.BlockingConnection(pika.ConnectionParameters(host="10.255.255.254", port=2014))
+    channel = connection.channel()
 
-channel.exchange_declare(exchange='scanner/detected_objects', exchange_type='fanout')
-result = channel.queue_declare(queue='', exclusive=True)
-queue_name = result.method.queue
-channel.queue_bind(exchange='scanner/detected_objects', queue=queue_name)
+    channel.exchange_declare(exchange='scanner/detected_objects', exchange_type='fanout')
+    result = channel.queue_declare(queue='', exclusive=True)
+    queue_name = result.method.queue
+    channel.queue_bind(exchange='scanner/detected_objects', queue=queue_name)
 
-for method_frame, properties, body in channel.consume(queue=queue_name, auto_ack=True):
-    detected_objects = json.loads(body.decode('utf-8'))
-    print(detected_objects)
+    for method_frame, properties, body in channel.consume(queue=queue_name, auto_ack=True):
+        detected_objects = json.loads(body.decode('utf-8'))
+        return detected_objects
