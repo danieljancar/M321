@@ -1,0 +1,20 @@
+1. Keycloak aufsetzen:
+
+docker run -d \
+  --name keycloak \
+  -p 2015:8080 \
+  -e KEYCLOAK_ADMIN=admin \
+  -e KEYCLOAK_ADMIN_PASSWORD=admin \
+  quay.io/keycloak/keycloak:26.0.0 start-dev
+
+2. realm & client anlegen (auf localhost:2015)
+
+3. API konfigurieren
+curl -XPOST http://10.255.255.254:2018/configure_oauth \
+  --data '{"client_secret": "<CLIENT_SECRET>", "authorize_url": "http://192.168.101.5:2015/realms/laser-control/protocol/openid-connect/auth", "token_url": "http://192.168.101.5:2015/realms/laser-control/protocol/openid-connect/token"}'
+
+4. use_laser Client Scope hinzufügen (auf localhost:2015) und unter clients -> laser -> client scopes hinzufügen
+
+5. neuer benutzer erstellen im admin ui
+
+6. http://10.255.255.254:2018/login

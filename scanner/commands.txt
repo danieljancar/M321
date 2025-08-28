@@ -1,0 +1,11 @@
+Scanner "installieren"
+
+1. rabbitmq installation
+
+apt install rabbitmq-server
+systemctl enable rabbitmq-server
+systemctl start rabbitmq-server
+systemctl status rabbitmq-server
+
+2. pika installation
+apt install python3-pika

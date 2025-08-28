@@ -1,0 +1,51 @@
+Zurro Station Aufgabe:
+
+curl -XPOST http://10.255.255.254:2009/set_target --data '{"target": {"x": -6792, "y": 6032}}'
+
+curl -XPOST http://10.255.255.254:2029/receive
+
+curl -XPOST http://10.255.255.254:2009/set_target --data '{"target": {"x": -1000, "y": 1000}}'
+
+curl -XPOST http://10.255.255.254:2030/put_message --data '{"sending_station": "Zurro Station", "base64data": "0aCKiMfP2dnLzc+IkIqI0fbEivaI2cXf2MnP9oiQivaI8N/Y2MWK+d7L3sPFxPaIhvbEivaIzs/Z3sPEy97DxcT2iJCK9ojr0N/Yy4r53svew8XE9oiG9sSK9ojOy97L9oiQivaI7MXY2cnC38TN2c7L3s/EioLt2N/a2s+Km5OYhJuckoSbmpuEn4P2iIb2xIr2iN7Z9oiQivaIm5+YmJ2dmpv2iPbE1/bEiIagiojZw83Ey97f2M+IkIqInprJyMydnsnOm5vPz5mezsvIn5qfmJKTy5ufzpuSy5zMnZ6fks+ZzpKem8mYk8ucn5vJm56Tks+fmZKemcidnYig16A="}'
+
+________________________________________________________________________________________________________________________________
+Artemis Station Aufgabe:
+
+curl -XPOST http://10.255.255.254:2009/set_target --data '{"target": {"x": -20000, "y": 38000}}'
+
+script (artemis_coms.py) ausgeführt
+
+curl -XPOST http://10.255.255.254:2009/set_target --data '{"target": {"x": -1000, "y": 1000}}'
+
+curl -XPOST http://10.255.255.254:2030/put_message --data '{"sending_station": "Artemis Station", "base64data": "0aCKiMfP2dnLzc+IkIqI0fbEivaI2cXf2MnP9oiQivaI69jez8fD2Yr53svew8XE9oiG9sSK9ojOz9new8TL3sPFxPaIkIr2iOvQ39jLivney97DxcT2iIb2xIr2iM7L3sv2iJCK9ojsxdjZycLfxM3Zzsvez8SKgu3Y39raz4qbk5iEm5yShJuam4Sfg/aIhvbEivaI3tn2iJCK9oibnZuZmpqanfaI9sTX9sSIhqCKiNnDzcTL3t/Yz4iQioidyc+fmJvPnpvJk52ZmM6fnsufyZ/Mk5vOn8mZz5jLnpqemcuen57MmZ6fmZjLmpOZnZyfncmbmZLJm5jMmcmIoNeg"}'
+
+________________________________________________________________________________________________________________________________
+Elyse Terminal Aufgabe:
+
+curl -XPOST http://10.255.255.254:2009/set_target --data '{"target": {"x": -82599, "y": 89973}}'
+
+script (elyse_coms.py) ausgeführt
+
+curl -XPOST http://10.255.255.254:2009/set_target --data '{"target": {"x": -1000, "y": 1000}}'
+
+curl -XPOST http://10.255.255.254:2030/put_message --data '{"sending_station": "Elyse Terminal", "base64data": "0aCKiMfP2dnLzc+IkIqI0fbEivaI2cXf2MnP9oiQivaI78bT2c+K/s/Yx8PEy8b2iIb2xIr2iM7P2d7DxMvew8XE9oiQivaI69Df2MuK+d7L3sPFxPaIhvbEivaIzsvey/aIkIr2iOzF2NnJwt/EzdnOy97PxIqC7djf2trPipuTmISbnJKEm5qbhJ+D9oiG9sSK9oje2faIkIr2iJudmJucm5me9oj2xNf2xIiGoIqI2cPNxMve39jPiJCKiM6YmJmbn5zLkpLJncvJy5PLzJPLyZmdmc+ez87LmszLmZKTm8uTmZ2bz8uZz5idz5PIm5PPzJiTyc7LyJiciKDXoA=="}'
+________________________________________________________________________________________________________________________________
+Core Station Aufgabe:
+
+curl -XPOST http://10.255.255.254:2009/set_target --data '{"target": "Core Station"}'
+
+curl -XPOST http://10.255.255.254:2027/receive
+
+curl -XPOST http://10.255.255.254:2009/set_target --data '{"target": {"x": -1000, "y": 1000}}'
+
+curl -XPOST http://10.255.255.254:2030/put_message --data '{"sending_station": "Core Station", "base64data": "0aCKiMfP2dnLzc+IkIqI0fbEivaI2cXf2MnP9oiQivaI6cXYz4r53svew8XE9oiG9sSK9ojOz9new8TL3sPFxPaIkIr2iOvQ39jLivney97DxcT2iIb2xIr2iM7L3sv2iJCK9ojsxdjZycLfxM3Zzsvez8SKgu3Y39raz4qbk5iEm5yShJuam4Sfg/aIhvbEivaI3tn2iJCK9oibnZiZk5qTn/aI9sTX9sSIhqCKiNnDzcTL3t/Yz4iQiojIz8udnp2enpPPy5vJz53Mk5zOm86bksvOyJ2Zm8zMyMjIkpLLz8+fz8/Jycmen5qeyMidmM+cy5Kek52ZyYig16A="}'
+
+________________________________________________________________________________________________________________________________
+Direktkommunikation zwischen Core Station und Azura Station:
+
+siehe core_to_auzra_coms.py
+
+________________________________________________________________________________________________________________________________
+Aurora Station Aufgabe:
+
+siehe aurora_coms.py
