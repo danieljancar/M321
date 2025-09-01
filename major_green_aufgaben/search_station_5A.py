@@ -3,8 +3,6 @@ import energy
 import navigation
 import time
 
-energy.set_limit_normal()
-
 def follow_station(target_name):
     while True:
         scan_result = scanner.scan()
@@ -20,15 +18,16 @@ def follow_station(target_name):
                     continue
 
                 print(f"Ziel: {target_name} bei x={x}, y={y}")
-                navigation.travel_position_until_recive(x, y)
+                navigation.travel_position(x, y)
                 print(f"{target_name} erreicht, weiter scannen ...")
 
-                time.sleep(.5)
+                time.sleep(0.5)
                 break
         time.sleep(0.5)
 
 if __name__ == "__main__":
     try:
+        energy.set_limit_normal()
         navigation.travel_position_until_recive(15400, -11200)
         follow_station("Station 5-A")
     except KeyboardInterrupt:
