@@ -23,7 +23,7 @@ def follow_station(target_name):
                 navigation.travel_position_until_recive(x, y)
                 print(f"{target_name} erreicht, weiter scannen ...")
 
-                time.sleep(1)
+                time.sleep(.5)
                 break
         time.sleep(0.5)
 
