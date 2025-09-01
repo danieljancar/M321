@@ -29,6 +29,7 @@ def follow_station(target_name):
 
 if __name__ == "__main__":
     try:
+        navigation.travel_position_until_recive(15400, -11200)
         follow_station("Station 5-A")
     except KeyboardInterrupt:
         print("\nScript gestoppt")
