@@ -6,4 +6,4 @@ navigation.travel_position_until_recive(8760, -9308)
 
 while True:
     laser.activate()
-    time.sleep(6)
+    time.sleep(7)
