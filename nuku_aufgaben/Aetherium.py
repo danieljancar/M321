@@ -8,7 +8,7 @@ navigation.travel_position_until_recive(-95500, -90773)
 
 energy.mine()
 while True:
-    # funktioniert nicht bzw. kein aetherium wird abgebaut
+    # TODO: braucht den besseren Laser --> bei core station kaufen
     laser.set_angle(176)
     laser.activate()
     time.sleep(7)
