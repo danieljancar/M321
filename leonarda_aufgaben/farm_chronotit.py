@@ -2,6 +2,7 @@ import navigation
 import energy
 import laser
 
+# TODO: cargo bot muss items nach unten räumen sonst kein platz
 navigation.travel_position_until_recive(-44900, 45728)
 energy.set_limits({
     "thruster_back": 0.2,

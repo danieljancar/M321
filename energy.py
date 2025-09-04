@@ -55,14 +55,16 @@ def set_limits(new_limits):
 
 def set_limit_normal():
     set_limits({
-        "scanner": 1,
         "thruster_back": 1,
         "thruster_front": 1,
         "thruster_bottom_left": 1,
         "thruster_front_right": 1,
         "thruster_bottom_right": 1,
         "thruster_front_left": 1,
-        "laser": 1
+        "scanner": 0,
+        "laser": 0,
+        "sensor_atomic_field": 1,
+        "matter_stabilizer": 1
     })
 
 
@@ -75,5 +77,7 @@ def mine():
         "thruster_front_right": 0.2,
         "thruster_bottom_right": 0.2,
         "thruster_front_left": 0.2,
-        "laser": 1
+        "laser": 1,
+        "sensor_atomic_field": 1,
+        "matter_stabilizer": 1
     })
