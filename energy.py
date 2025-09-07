@@ -1,6 +1,7 @@
 import requests
 import json
 
+
 def get_status_node1():
     response = requests.get('http://10.255.255.254:2032/status')
     if response.status_code == 200:
@@ -80,4 +81,22 @@ def mine():
         "laser": 1,
         "sensor_atomic_field": 1,
         "matter_stabilizer": 1
+    })
+
+
+def set_energy_mine(matter_stabilizer, laser_amplifier):
+    set_limits({
+        "scanner": 0,
+        "thruster_back": 0,
+        "thruster_front": 0,
+        "thruster_bottom_left": 0,
+        "thruster_front_right": 0,
+        "thruster_bottom_right": 0,
+        "thruster_front_left": 0,
+        "cargo_bot": 0,
+        "laser": 0.5,
+        "sensor_atomic_field": matter_stabilizer,
+        "matter_stabilizer": matter_stabilizer,
+        "laser_amplifier": laser_amplifier,
+        "sensor_plasma_radiation": laser_amplifier
     })

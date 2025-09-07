@@ -1,16 +1,17 @@
 import navigation
 import energy
 import laser
-import time
+
 
 energy.set_limit_normal()
-navigation.travel_position_until_recive(-95500, -90773)
+navigation.travel_position_until_recive(-95550, -90773)
 
-energy.mine()
+energy.set_energy_mine(0, 1)
+laser.aim_laser()
+
+"""
+laser.set_angle(234)
 while True:
-    # TODO: braucht den besseren Laser --> bei core station kaufen
-    laser.set_angle(176)
     laser.activate()
     time.sleep(7)
-
-
+"""
