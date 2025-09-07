@@ -1,6 +1,9 @@
 import requests
 import time
 
+import cargo_hold
+
+
 def activate():
     response = requests.post("http://10.255.255.254:2018/activate")
     print(f"activate laser: {response.json()}")
@@ -40,6 +43,9 @@ def aim_laser():
             set_angle(angle)
             restart_laser += 1
             state = get_state()
+
+            if cargo_hold.must_move_item():
+                cargo_hold.move_all_down(.5)
 
             if state.get("is_mining"):
                 print("mining rn")

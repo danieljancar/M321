@@ -22,43 +22,43 @@ def display_cargo_hold():
 def get_cargo_hold():
     return requests.get(url).json()
 
-def move_first_row(vertical_size: int):
-    response = requests.get("http://10.255.255.254:2012/structure")
-
-    data = response.json().get("hold")
-    row = data[0]
-
-    for x_position, item in enumerate(row):
-        if item is not None:
-            items_in_column = find_items_in_column(data, x_position, vertical_size)
-            if items_in_column == 0:
-                continue
-            move_item_down(x_position, items_in_column)
-            break
+def get_structure():
+    return requests.get("http://10.255.255.254:2012/structure")
 
 
-def move_item_down(x_position, items_in_column):
-    y_position = 0
-
-    for y in range(items_in_column):
-        out_data = {
-            "a": {"x": x_position, "y": y_position},
-            "b": {"x": x_position, "y": y_position + 1}
-        }
-        y_position += 1
-        requests.post("http://10.255.255.254:2012/swap_adjacent", json=out_data).json()
-        time.sleep(.5)
+def move_structure(payload):
+    return requests.post("http://10.255.255.254:2012/swap_adjacent", json=payload)
 
 
-def find_items_in_column(data, column_index, vertical_size) -> int:
-    items_in_column = vertical_size
+def move_down_when_full(sleep=.5):
+    has_to_be_moved = must_move_item()
+    print("bewege nach unten wenn voll: " + str(has_to_be_moved))
+    if has_to_be_moved:
+        move_all_down(sleep)
 
-    for row_index, row in reversed(list(enumerate(data))):
-        item = row[column_index]
 
-        if item is not None and items_in_column != 0:
-            items_in_column -= 1
-        else:
-            break
+def must_move_item():
+    return all(item is not None for item in get_structure().json()["hold"][0])
 
-    return items_in_column
+
+def move_all_down(sleep):
+    for y in range(get_last_none_row()):
+        for x in range(12):
+            print(move_structure({
+                "a": {
+                    "x": x,
+                    "y": y
+                },
+                "b": {
+                    "x": x,
+                    "y": y + 1
+                }
+            }).json())
+            time.sleep(sleep)
+
+def get_last_none_row():
+    last_none_row = 0
+    for i, row in enumerate(get_structure().json()["hold"]):
+        if any(cell is None for cell in row):
+            last_none_row = i
+    return last_none_row
