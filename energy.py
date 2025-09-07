@@ -71,13 +71,13 @@ def set_limit_normal():
 def mine():
     set_limits({
         "scanner": 0,
-        "thruster_back": 0.2,
-        "thruster_front": 0.2,
-        "thruster_bottom_left": 0.2,
-        "thruster_front_right": 0.2,
-        "thruster_bottom_right": 0.2,
-        "thruster_front_left": 0.2,
+        "thruster_back": 0,
+        "thruster_front": 0,
+        "thruster_bottom_left": 0,
+        "thruster_front_right": 0,
+        "thruster_bottom_right": 0,
+        "thruster_front_left": 0,
         "laser": 1,
-        "sensor_atomic_field": 0.2,
-        "matter_stabilizer": 0.2
+        "sensor_atomic_field": 1,
+        "matter_stabilizer": 1
     })
