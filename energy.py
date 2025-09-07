@@ -64,8 +64,10 @@ def set_limit_normal():
         "thruster_front_left": 1,
         "scanner": 0,
         "laser": 0,
-        "sensor_atomic_field": 1,
-        "matter_stabilizer": 1
+        "sensor_atomic_field": 0,
+        "matter_stabilizer": 0,
+        "laser_amplifier": 0,
+        "sensor_plasma_radiation": 0
     })
 
 
