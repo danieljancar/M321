@@ -18,11 +18,11 @@ def update_measure_loop():
     while True:
         try:
             response = requests.post("http://10.255.255.254:2042/measure", timeout=10)
-            print("Messdaten empfangen:", response.text)
+            print("messdaten empfangen:", response.text)
             last_measure = response.json().get("result")
             print("last_measure:", last_measure)
-        except Exception as ex:
-            print("Fehler beim Abrufen der Messdaten:", ex)
+        except Exception as e:
+            print("fehler:", e)
         time.sleep(5)
 
 def start_flask():
