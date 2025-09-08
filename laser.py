@@ -49,6 +49,7 @@ def aim_laser():
 
             if state.get("is_mining"):
                 print("mining rn")
+                print(angle)
                 time.sleep(5)
             else:
                 angle = (angle + 22) % 360
