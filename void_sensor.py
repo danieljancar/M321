@@ -1,6 +1,7 @@
 import uuid
 import requests
 import time
+import energy
 from pymongo import MongoClient
 
 def trigger_measurement_and_store():
@@ -56,4 +57,11 @@ def trigger_measurement_and_store():
     client.close()
     return result_to_return
 
-trigger_measurement_and_store()
+
+if __name__ == "__main__":
+    energy.set_limits({
+        "sensor_void_energy": 1,
+        "shield_generator": 1
+    })
+
+    trigger_measurement_and_store()
