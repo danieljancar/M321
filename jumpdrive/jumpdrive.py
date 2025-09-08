@@ -43,6 +43,7 @@ def get_charge_percent():
         print(f"Fehler bei GetChargePercent: {e}")
 
 # nuclear reactor muss laufen und uran verbennen
+# venv aktivieren: source venv/bin/activate
 connect_to_opcua()
 get_charge_percent()
 jump_to(150000, 150000)
