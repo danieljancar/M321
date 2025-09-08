@@ -42,8 +42,7 @@ def get_charge_percent():
     except Exception as e:
         print(f"Fehler bei GetChargePercent: {e}")
 
-
-# verbraucht 50 MW --> kernreaktor?
+# nuclear reactor muss laufen und uran verbennen
 connect_to_opcua()
 get_charge_percent()
-jump_to(100, 100)
+jump_to(150000, 150000)
