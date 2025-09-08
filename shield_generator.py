@@ -5,7 +5,7 @@ import energy
 from pymongo import MongoClient
 
 def trigger_measurement_and_store():
-    client = MongoClient("mongodb://theship:theship1234@10.255.255.254:2021/theshipdb")
+    client = MongoClient("mongodb://theship:theship1234@10.255.255.254:2021/admin")
     db = client["theshipdb"]
     collection = db["vacuum-energy"]
 
@@ -61,7 +61,11 @@ def trigger_measurement_and_store():
 if __name__ == "__main__":
     energy.set_limits({
         "sensor_void_energy": 1,
-        "shield_generator": 1
+        "shield_generator": 1,
+        "laser": 0,
+        "scanner": 0,
+        "cargo_bot": 0
     })
 
-    trigger_measurement_and_store()
+    while True:
+        trigger_measurement_and_store()

@@ -1,0 +1,10 @@
+1. mongodb setup
+
+docker run -d \
+  --name theship-mongo \
+  -p 2021:27017 \
+  -e MONGO_INITDB_ROOT_USERNAME=theship \
+  -e MONGO_INITDB_ROOT_PASSWORD=theship1234 \
+  mongo:4.4
+
+
