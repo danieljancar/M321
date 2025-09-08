@@ -43,5 +43,7 @@ def get_charge_percent():
         print(f"Fehler bei GetChargePercent: {e}")
 
 
+# verbraucht 50 MW --> kernreaktor?
 connect_to_opcua()
+get_charge_percent()
 jump_to(100, 100)
