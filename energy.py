@@ -62,27 +62,34 @@ def set_limit_normal():
         "thruster_front_right": 1,
         "thruster_bottom_right": 1,
         "thruster_front_left": 1,
-        "scanner": 1,
+        "cargo_bot": 1,
+        "scanner": 0,
         "laser": 0,
         "sensor_atomic_field": 0,
         "matter_stabilizer": 0,
         "laser_amplifier": 0,
-        "sensor_plasma_radiation": 0
+        "sensor_plasma_radiation": 0,
+        "nuclear_reactor": 0,
+        "jumpdrive": 0
     })
 
 
 def mine():
     set_limits({
-        "scanner": 0,
+        "laser": 1,
         "thruster_back": 0,
         "thruster_front": 0,
         "thruster_bottom_left": 0,
         "thruster_front_right": 0,
         "thruster_bottom_right": 0,
         "thruster_front_left": 0,
-        "laser": 1,
-        "sensor_atomic_field": 1,
-        "matter_stabilizer": 1
+        "scanner": 0,
+        "sensor_atomic_field": 0,
+        "matter_stabilizer": 0,
+        "nuclear_reactor": 0,
+        "jumpdrive": 0,
+        "laser_amplifier": 0,
+        "sensor_plasma_radiation": 0
     })
 
 
