@@ -1,9 +1,7 @@
 from opcua import Client, ua
 
 
-url = "opc.tcp://10.255.255.254:2035/"
-client = Client(url)
-
+client = Client("opc.tcp://10.255.255.254:2035/")
 
 def connect_to_opcua():
     try:
@@ -19,31 +17,14 @@ def connect_to_opcua():
 def jump_to(x, y):
     try:
         node = client.get_node("ns=0;i=20001")
-
-        # Verwende die to_variant Funktion für die Argumente
         result = node.call_method("0:JumpTo", ua.Variant(x, ua.VariantType.Int32), ua.Variant(y, ua.VariantType.Int32))
-
         print(f"Ergebnis von JumpTo: {result}")
+        client.disconnect()
 
     except Exception as e:
         print(f"Fehler bei JumpTo: {e}")
 
 
-def get_charge_percent():
-    try:
-        # Hole die Methode GetChargePercent
-        node = client.get_node("ns=0;i=20001")
-
-        # Rufe die Methode auf
-        result = node.call_method("0:GetChargePercent")
-
-        print(f"Ladestand in Prozent: {result}")
-
-    except Exception as e:
-        print(f"Fehler bei GetChargePercent: {e}")
-
 # nuclear reactor muss laufen und uran verbennen
-# venv aktivieren: source venv/bin/activate
 connect_to_opcua()
-get_charge_percent()
 jump_to(150000, 150000)
