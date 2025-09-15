@@ -5,7 +5,7 @@ import energy
 from pymongo import MongoClient
 
 def trigger_measurement_and_store():
-    client = MongoClient("mongodb://theship:theship1234@10.255.255.254:2021/admin")
+    client = MongoClient("mongodb://theship:theship1234@10.255.255.254:2021/theshipdb")
     db = client["theshipdb"]
     collection = db["vacuum-energy"]
 
@@ -19,7 +19,7 @@ def trigger_measurement_and_store():
         print("Messung erfolgreich")
     else:
         print(f"Fehler beim Anfordern der Messung: {response.text}")
-        return
+        return None
 
     measurement_url = "http://10.255.255.254:2037/measurements/" + random
     while True:
