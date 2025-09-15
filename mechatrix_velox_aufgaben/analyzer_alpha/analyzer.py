@@ -24,7 +24,6 @@ def trigger_measurement_and_store():
         return None
 
     measurement_url = f"http://10.255.255.254:2037/measurements/{request_id}"
-    result = None
 
     while True:
         r = requests.get(measurement_url).json()
