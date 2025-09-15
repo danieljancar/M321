@@ -1,4 +1,4 @@
 import navigation as nav
 
-# analyzer laufen lassen
+# analyzer alpha laufen lassen
 nav.travel_position_until_recive(-21500, 36500)
