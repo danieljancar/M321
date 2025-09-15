@@ -8,3 +8,27 @@ docker run -d \
   mongo:4.4
 
 
+2. auf mongodb verbinden
+docker exec -it theship-mongo mongo -u theship -p theship1234 --authenticationDatabase admin
+
+3. user erstellen für theshipdb
+use theshipdb
+switched to db theshipdb
+
+> db.createUser({
+...   user: "theship",
+...   pwd: "theship1234",
+...   roles: [
+...     { role: "readWrite", db: "theshipdb" }
+...   ]
+... })
+Successfully added user: {
+	"user" : "theship",
+	"roles" : [
+		{
+			"role" : "readWrite",
+			"db" : "theshipdb"
+		}
+	]
+}
+>
