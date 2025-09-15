@@ -70,7 +70,11 @@ def set_limit_normal():
         "laser_amplifier": 0,
         "sensor_plasma_radiation": 0,
         "nuclear_reactor": 0,
-        "jumpdrive": 0
+        "jumpdrive": 0,
+        "analyzer_alpha": 0,
+        "analyzer_beta": 0,
+        "shield_generator": 0,
+        "sensor_void_energy": 0
     })
 
 
