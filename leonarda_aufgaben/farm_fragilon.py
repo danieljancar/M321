@@ -9,6 +9,8 @@ navigation.travel_position_until_recive(-53750, -44627)
 energy.mine()
 laser.aim_laser()
 
+# mit jumpdrive traveln
+
 """
 laser.set_angle(110)
 
