@@ -1,0 +1,13 @@
+Muss installiert werden damit das File abgelegt werden kann
+
+ curl -O https://dl.min.io/server/minio/release/linux-amd64/minio
+
+ chmod +x minio
+
+ sudo mv minio /usr/local/bin/
+
+ export MINIO_ROOT_USER=theship
+
+ export MINIO_ROOT_PASSWORD=theship1234
+
+ minio server --address :2016 ~/minio_data
