@@ -24,7 +24,14 @@ def jump_to(x, y):
     except Exception as e:
         print(f"Fehler bei JumpTo: {e}")
 
+"""
+- nuclear reactor muss laufen und uran verbennen
+- wenn jumpdrive aufgeladen ist dann ausführen
+- kann nur 20000 springen (x und y zusammen)
 
-# nuclear reactor muss laufen und uran verbennen
+Beispiel:
+Wenn ich (-50000; -40000) bin, muss ich zu (-40000; -30000) springen
+Dann bewege ich mich 10000 in X-Richtung und in Y-Richtung. Das gibt zusammen das Limit 20000
+"""
 connect_to_opcua()
-jump_to(150000, 150000)
+jump_to(0, 0)
