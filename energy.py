@@ -106,7 +106,7 @@ def set_energy_mine(matter_stabilizer, laser_amplifier):
         "thruster_front_right": 0,
         "thruster_bottom_right": 0,
         "thruster_front_left": 0,
-        "cargo_bot": 0,
+        "cargo_bot": 0.3,
         "laser": 0.5,
         "sensor_atomic_field": matter_stabilizer,
         "matter_stabilizer": matter_stabilizer,
