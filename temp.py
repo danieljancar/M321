@@ -9,7 +9,7 @@ energy.set_limit_normal()
 """
 energy.set_limits({
     "nuclear_reactor": 1,
-    "jumpdrive": 1,
+    "jumpdrive": 0.6,
     "scanner": 0,
     "laser": 0,
     "sensor_atomic_field": 0,
