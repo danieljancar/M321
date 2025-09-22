@@ -81,6 +81,7 @@ def set_limit_normal():
 def mine():
     set_limits({
         "laser": 1,
+        "cargo_bot": 1,
         "thruster_back": 0,
         "thruster_front": 0,
         "thruster_bottom_left": 0,
