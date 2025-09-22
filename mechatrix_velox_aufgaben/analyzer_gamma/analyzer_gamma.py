@@ -28,7 +28,7 @@ def ensure_bucket_exists(bucket_name):
             s3.create_bucket(Bucket=bucket_name)
             print(f"Bucket '{bucket_name}' erstellt.")
         else:
-            raise e
+            print("es kracht")
 
 
 def measure(direction):
