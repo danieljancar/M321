@@ -14,8 +14,8 @@ secret_key = "theship1234"
 
 s3 = boto3.client('s3',
                   endpoint_url=s3_host,
-                  aws_access_key_id=access_key,
-                  aws_secret_access_key=secret_key)
+                  access_key_id=access_key,
+                  secret_access_key=secret_key)
 
 def ensure_bucket_exists(bucket_name):
     try:
