@@ -1,0 +1,63 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rabbitmq-config
+  namespace: theship-vendor
+data:
+  rabbitmq.conf: |
+    listeners.tcp.default = 2014
+    loopback_users.guest = false
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rabbitmq
+  namespace: theship-vendor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rabbitmq
+  template:
+    metadata:
+      labels:
+        app: rabbitmq
+    spec:
+      containers:
+        - name: rabbitmq
+          image: rabbitmq:3-management
+          ports:
+            - containerPort: 2014
+            - containerPort: 15672
+          env:
+            - name: RABBITMQ_DEFAULT_USER
+              value: guest
+            - name: RABBITMQ_DEFAULT_PASS
+              value: guest
+          volumeMounts:
+            - name: rabbitmq-config-volume
+              mountPath: /etc/rabbitmq
+      volumes:
+        - name: rabbitmq-config-volume
+          configMap:
+            name: rabbitmq-config
+            items:
+              - key: rabbitmq.conf
+                path: rabbitmq.conf
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rabbitmq
+  namespace: theship-vendor
+spec:
+  selector:
+    app: rabbitmq
+  ports:
+    - name: amqp
+      port: 2014
+      targetPort: 2014
+    - name: management
+      port: 15672
+      targetPort: 15672
+  type: NodePort  # Oder LoadBalancer in Cloud
