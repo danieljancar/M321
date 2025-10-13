@@ -1,0 +1,1 @@
+curl -XPOST http://10.1.1.40:2018/configure_oauth --data '{"client_secret": "mR5P8aFa9BV3KRFFzvIuYxhtVmOt0l39eenBNL266FVxndrmspln1Lo77thmp916JXkuUqoLbHuW18G8dvxye4v9ojMRpEFS0wZ4ZYHSg0cG029C5F2fZUjV6HLaRgNx", "authorize_url": "http://vpn.wicki.sbs:9000/application/o/authorize/", "token_url": "http://vpn.wicki.sbs:9000/application/o/token/"}'
