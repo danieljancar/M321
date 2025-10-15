@@ -65,7 +65,7 @@ def set_limit_normal():
         "cargo_bot": 1,
         "scanner": 1,
         "laser": 0,
-        "sensor_atomic_field": 0.5,
+        "sensor_atomic_field": 1,
         "matter_stabilizer": 0,
         "laser_amplifier": 0,
         "sensor_plasma_radiation": 0,
