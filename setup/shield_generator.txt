@@ -37,3 +37,4 @@ Successfully added user: {
 
 use theshipdb
 db["vacuum-energy"].insertOne({ "data": BinData(0, "01234abcdef") })
+
