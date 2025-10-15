@@ -73,7 +73,7 @@ def set_limit_normal():
         "jumpdrive": 0,
         "analyzer_alpha": 0,
         "analyzer_beta": 0,
-        "shield_generator": 0,
+        "shield_generator": 1,
         "sensor_void_energy": 0
     })
 
