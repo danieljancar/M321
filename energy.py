@@ -74,7 +74,7 @@ def set_limit_normal():
         "analyzer_alpha": 0,
         "analyzer_beta": 0,
         "shield_generator": 1,
-        "sensor_void_energy": 0
+        "sensor_void_energy": 1
     })
 
 
