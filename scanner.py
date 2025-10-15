@@ -12,4 +12,7 @@ def scan():
 
     for method_frame, properties, body in channel.consume(queue=queue_name, auto_ack=True):
         detected_objects = json.loads(body.decode('utf-8'))
+        print(f" [x] Received {detected_objects}")
         return detected_objects
+    
+    print('Closing connection')
