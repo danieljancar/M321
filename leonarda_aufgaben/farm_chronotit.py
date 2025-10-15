@@ -4,10 +4,11 @@ import laser
 import cargo_hold as cargo
 import time
 
-energy.set_limit_normal()
+"""
 navigation.travel_position_until_recive(-44450, 45728)
 
 laser.aim_laser()
+"""
 
 energy.set_energy_mine(1, 0)
 laser.set_angle(50)
