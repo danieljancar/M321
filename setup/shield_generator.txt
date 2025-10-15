@@ -32,3 +32,9 @@ Successfully added user: {
 	]
 }
 >
+
+4. Write collection vacuum-energy with a single document having the format { "data": "01234abcdef" }
+
+use theshipdb
+db["vacuum-energy"].insertOne({ "data": "01234abcdef" })
+
