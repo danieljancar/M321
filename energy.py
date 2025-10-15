@@ -64,7 +64,7 @@ def set_limit_normal():
         "thruster_front_left": 1,
         "cargo_bot": 1,
         "scanner": 1,
-        "laser": 0,
+        "laser": 1,
         "sensor_atomic_field": 1,
         "matter_stabilizer": 0,
         "laser_amplifier": 0,
