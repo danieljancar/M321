@@ -5,3 +5,6 @@ def travel_to():
     cords = {"x": -60000, "y": 9000}
     payload = {"target": cords}
     return requests.post(url, json=payload)
+
+if __name__ == "__main__":
+    travel_to()
