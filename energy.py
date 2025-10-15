@@ -62,10 +62,10 @@ def set_limit_normal():
         "thruster_front_right": 1,
         "thruster_bottom_right": 1,
         "thruster_front_left": 1,
-        "cargo_bot": 1,
-        "scanner": 1,
-        "laser": 1,
-        "sensor_atomic_field": 1,
+        "cargo_bot": .3,
+        "scanner": .5,
+        "laser": .5,
+        "sensor_atomic_field": .3,
         "matter_stabilizer": 0,
         "laser_amplifier": 0,
         "sensor_plasma_radiation": 0,
@@ -73,8 +73,8 @@ def set_limit_normal():
         "jumpdrive": 0,
         "analyzer_alpha": 0,
         "analyzer_beta": 0,
-        "shield_generator": 1,
-        "sensor_void_energy": 1
+        "shield_generator": .5,
+        "sensor_void_energy": .3
     })
 
 
