@@ -28,5 +28,5 @@ def follow_captain_morris():
 
 if __name__ == "__main__":
     energy.set_limit_normal()
-    navigation.travel_position_until_recive(0, 0)
+    navigation.travel_position_until_recive(-11000, -11000)
     follow_captain_morris()
