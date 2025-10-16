@@ -10,6 +10,8 @@ def get_data():
         response = requests.get("http://10.255.255.254:2038/data")
         json = response.json()
         print(json)
+        # make value str
+        json["value"] = str(json.get("value"))
         return {"data": json.get("value")}
     except Exception as e:
         return {"error": str(e)}
