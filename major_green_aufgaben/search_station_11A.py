@@ -63,19 +63,34 @@ def expanding_search_from_last_known(target_name, last_known_x=-24900, last_know
     """
     Search in expanding rings from the last known position
     Since the station has moved from its last known location, search outward
+    
+    Reference: Station 5-A moved ~6,900 units from (15400, -11200) to (8760, -9308)
+    So we should search in expanding rings up to at least 10,000+ units
     """
     print(f"Starting expanding search from last known position: ({last_known_x}, {last_known_y})")
     print("Station is confirmed to have moved from this location")
+    print("📊 Reference: Station 5-A moved ~6,900 units from its last known position")
     
     import math
     
-    # Start with small radius and expand outward
-    for radius in [2000, 4000, 6000, 8000, 10000, 15000, 20000, 25000, 30000]:
+    # Based on Station 5A data, search in expanding rings up to 15km+ to be safe
+    # Station 5A moved ~6.9km, so Station 11-A could be similar distance or further
+    radii = [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 12000, 15000, 20000]
+    
+    for radius in radii:
         print(f"\n🔍 Searching radius {radius} units from last known position...")
+        print(f"   (Station 5-A reference: moved ~6,900 units)")
         
         # Calculate number of points based on radius to ensure good coverage
         # More points for larger radii to maintain good coverage
-        num_points = max(8, radius // 2000)  # At least 8 points, more for larger radii
+        if radius <= 3000:
+            num_points = 8
+        elif radius <= 7000:
+            num_points = 12  # More points in the likely range
+        elif radius <= 10000:
+            num_points = 16  # Even more points in the critical range
+        else:
+            num_points = max(16, radius // 1500)  # Comprehensive coverage for larger radii
         
         search_points = []
         for i in range(num_points):
@@ -104,6 +119,7 @@ def expanding_search_from_last_known(target_name, last_known_x=-24900, last_know
                                 print(f"\n🎯 FOUND {target_name}!")
                                 print(f"New Position: x={station_x}, y={station_y}")
                                 print(f"Distance moved from last known: {distance_moved:.0f} units")
+                                print(f"📊 Comparison: Station 5-A moved ~6,900 units, this station moved {distance_moved:.0f} units")
                                 
                                 # Log the discovery with movement info
                                 log_station_discovery(target_name, station_x, station_y, obj, 
@@ -122,7 +138,8 @@ def expanding_search_from_last_known(target_name, last_known_x=-24900, last_know
             
             time.sleep(0.3)  # Brief pause between search points
     
-    print(f"❌ {target_name} not found within 30,000 units of last known position")
+    print(f"❌ {target_name} not found within 20,000 units of last known position")
+    print("💡 Consider: Station might have moved further than Station 5-A's ~6,900 units")
     return False
 
 
